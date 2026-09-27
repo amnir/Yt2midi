@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yt2midi"
+version = "0.1.0"
+description = "Turn a YouTube piano video into a two-hand MIDI file for piano teaching apps"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "yt-dlp",
+    "imageio-ffmpeg",
+    "numpy",
+    "mido",
+    "librosa",
+    "torch",
+    "piano_transcription_inference",
+]
+
+[project.optional-dependencies]
+basic-pitch = ["basic-pitch"]
+dev = ["pytest"]
+
+[project.scripts]
+yt2midi = "yt2midi.cli:main"
+
+[tool.setuptools]
+packages = ["yt2midi"]
